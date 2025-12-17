@@ -136,7 +136,7 @@ Just to clear up any confusion of what these terms mean originally, because it k
 
 ## AXI-Lite Master Design
 
-Now with all of that out of the way, we can finally start deisgning the AXI-Lite Master.
+Now with all of that out of the way, we can finally start deisgning the AXI-Lite Master. We'll be focusing on a 32-bit system, although these same concepts can be applied on 64-bit as well.
 
 ---
 

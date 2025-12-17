@@ -7,8 +7,16 @@ Author: Andrew Chen
 Date Created: Dec 16 2025
 ================================================*/
 
-module axilite_master (
+module axilite_master # (
+    parameter integer AXI_ADDR_WIDTH = 32,
+    parameter integer AXI_DATA_WIDTH = 32
+    ) (
+    // global
+    input wire ACLK,
+    input wire ARESETn,
 
+    // write address channel
+    
 );
 
 endmodule
