@@ -3,7 +3,7 @@
 ## Preface to Reader
 
 To properly view all README files on VSCode, open this folder in VSCode and `Ctrl + Shift + V` for Windows or `Cmd + Shift + V` 
-for Mac devices for better visuals and cleaner markdown formatting. It'll look prettier, I promise 😀. 
+for Mac devices for better visuals and cleaner markdown formatting. It'll look prettier, I promise 😆. 
 
 See how I apply these UVM techniques to the AXI protocol that I'll design and build using SystemVerilog. Look at the `rtl-design` folder to learn more in detail about how I designed the system and look at the `verification` folder for more detail on UVM and how it works at the low level. This README just provides a general summary of what this project is about. Thanks for stopping by!
 
@@ -91,37 +91,17 @@ to constructors used in Java, and you're explicitly calling super() on both lang
 
 ### Build Phases
 
-During the build phases, the components are built, one by one, in a top-down manner, and the necessary connectinos are made between all of them. This happens at zero simulation time. We really only 
-need to worry about the build and connect phase:
-
-- Build
-
-- Connect
+During the build phases, the components are built, one by one, in a top-down manner, and the necessary connections are made between all of them. This happens at zero simulation time. We really only 
+need to worry about the build and connect phase.
 
 
 ### Run Phases
 
-Run phases are where all your main logic goes. All the consuming statements fall into this category.
-
-- Reset
-
-- Configure
-
-- Main
-
-- Shutdown
+Run phases are where all your main logic goes. All the consuming statements fall into this category. It's where the agent in your framework tests your DUT and tracks the tests passed using a scoreboard.
 
 ### Cleanup Phases
 
 After the simulation is done, we have the cleanup phases, which extract the expected data from the scoreboard and display the final results.
-
-- Extract
-
-- Check
-
-- Report
-
-- Final 
 
 ---
 
@@ -129,19 +109,19 @@ After the simulation is done, we have the cleanup phases, which extract the expe
 
 We will be building and designing the AXI protocol using a master-slave model, then testing it using UVM as proof of correctness. These diagrams are from the `AMBA AXI Protocol Specification` by ARM. 
 
-I'll assume the reader is aware of AXI protocols, but just in case,
-the subdirectory `rtl-design` includes more information on the inner workings of it, and how I came around to designing the interface in SystemVerilog.
-
-This is Figure 1-1.
+This is Figure 1-1, which shows the read transactions.
 
 <p align="center">
     <img width=600px src="./rtl-design/Figure1-1.png" />
 </p>
 
-This is Figure 1-2.
+This is Figure 1-2, which shows the write transactions.
 
 <p align="center">
     <img width=600px src="./rtl-design/Figure1-2.png" />
 </p>
+
+I'll assume the reader is aware of AXI protocols, but just in case,
+the subdirectory `rtl-design` includes more information on the inner workings of it, and how I came around to designing the interface in SystemVerilog.
 
 ---
