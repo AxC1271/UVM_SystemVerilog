@@ -153,9 +153,17 @@ After the simulation is done, we have the cleanup phases, which extract the expe
 
 ## AXI Protocol Specifications
 
+To test our verification in SystemVerilog, we will be building and designing the AXI protocol using a master-slave model. These diagrams are from the `AMBA AXI Protocol Specification` by ARM. 
+I'll assume the reader is aware of AXI protocols, but just in case,
+the subdirectory `rtl-design` includes more information on the inner workings of it, and how I came around to designing the interface in SystemVerilog.
+
+This is Figure 1-1.
+
 <p align="center">
     <img height=400px src="./axi-protocol/rtl-design/Figure1-1.png" />
 </p>
+
+This is Figure 1-2.
 
 <p align="center">
     <img height=400px src="./axi-protocol/rtl-design/Figure1-2.png" />
