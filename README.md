@@ -11,7 +11,7 @@ for Mac devices for better visuals and cleaner markdown formatting. It'll look p
     <img src="./UVM_Diagram.png" height=400px />
 </p>
 
-This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module.
+This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module. It makes a lot of intuitive sense on what modules belong where in which module's build phase, and it makes visualizing it as a cohesive system a lot easier.
 
 ---
 
@@ -109,8 +109,6 @@ endmodule
 
 ---
 
-## Setting up Test/Agent/Env/Monitor Modules
-
 ## Phase Flow
 
 <p align="center">
@@ -150,3 +148,15 @@ After the simulation is done, we have the cleanup phases, which extract the expe
 - Report
 
 - Final 
+
+---
+
+## AXI Protocol
+
+---
+
+## Note to Reader
+
+See how I apply these UVM techniques to the AXI protocol that I designed and built using SystemVerilog as well. Look at the `rtl-design` folder to learn more in detail about how I designed the system and look at the `verification` folder for more detail on UVM and how it works at the low level. Thanks for stopping by!
+
+---
