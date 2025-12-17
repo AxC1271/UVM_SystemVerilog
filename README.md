@@ -1,17 +1,23 @@
 # Full Guide to SystemVerilog UVM (Universal Verification Methodology)
 
-To properly view this README file on VSCode, open this folder in VSCode and `Ctrl + Shift + V` for Windows or `Cmd + Shift + V` 
+## Preface to Reader
+
+To properly view all README files on VSCode, open this folder in VSCode and `Ctrl + Shift + V` for Windows or `Cmd + Shift + V` 
 for Mac devices for better visuals and cleaner markdown formatting. It'll look prettier, I promise 😀. 
+
+See how I apply these UVM techniques to the AXI protocol that I'll design and build using SystemVerilog. Look at the `rtl-design` folder to learn more in detail about how I designed the system and look at the `verification` folder for more detail on UVM and how it works at the low level. This README just provides a general summary of what this project is about. Thanks for stopping by!
 
 ---
 
-## Overall Architecture
+## Overall Architecture + Summary
 
 <p align="center">
-    <img src="./axi-protocol/verification/UVM_Diagram.png" height=400px />
+    <img height=400px src="./axi-protocol/verification/UVM_Diagram.png" />
 </p>
 
-This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module. It makes a lot of intuitive sense on what modules belong where in which module's build phase, and it makes visualizing it as a cohesive system a lot easier.
+This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module. It makes a lot of intuitive sense on what modules belong where in which module's build phase, and it makes visualizing it as a cohesive system a lot easier. Essentially, the general UVM model (which is your top module) consists of two models, your design under test (the design you want to stress-test and simulate) and your actual test.
+
+Within your actual test model, you need to set up the environment, which consists of an agent (who kinda does all of the testing manually) and the scoreboard, which keeps track of how well your simulation's doing. The agent uses a sequencer, which arbitrates the flow of stimulus transactions while the driver takes these transactions and drives the actual pin-level signals onto the DUT. The monitor then takes the actual pin activity from the DUT, converts it back to transaction-level objects, then updates it to your scoreboard.
 
 ---
 
@@ -77,38 +83,6 @@ to constructors used in Java, and you're explicitly calling super() on both lang
 
 ---
 
-## Setting up the Top Module
-
-Setting up the top module is pretty straightforward and does not require a lot of steps. Here we need to include two important lines:
-
-```Verilog
-`include "uvm_macros.svh" // .svh import here is needed for all top modules in uvm
-import uvm_pkg::*; 
-```
-
-These are necessary and should be included in all top UVM modules for SystemVerilog.
-
-Here's the general structure of the top module:
-
-```Verilog
-`timescale 1ps / 1ns
-`include "uvm_macros.svh" // .svh import here is needed for all top modules in uvm
-import uvm_pkg::*; 
-
-module top();
-
-    // instantiate your design under test like normal testbenching
-    our_design dut();
-
-    // write your test object here, both in top.sv and as a separate systemverilog module (check test.sv)
-    initial begin
-        run_test("test");
-    end
-endmodule
-```
-
----
-
 ## Phase Flow
 
 <p align="center">
@@ -168,11 +142,5 @@ This is Figure 1-2.
 <p align="center">
     <img height=400px src="./axi-protocol/rtl-design/Figure1-2.png" />
 </p>
-
----
-
-## Note to Reader
-
-See how I apply these UVM techniques to the AXI protocol that I designed and built using SystemVerilog as well. Look at the `rtl-design` folder to learn more in detail about how I designed the system and look at the `verification` folder for more detail on UVM and how it works at the low level. Thanks for stopping by!
 
 ---
