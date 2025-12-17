@@ -1,11 +1,11 @@
-/*================
+`timescale 1ns / 1ps
+
+/*================================================
 File Name: sequence_item.sv
 Description: sequence item in agent
 Author: Andrew Chen
 Date Created: Dec 16 2025
-================*/
-
-`timescale 1ns / 1ps
+================================================*/
 
 // this is the basic structure for the sequence item
 

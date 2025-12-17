@@ -1,11 +1,11 @@
-/*================
+`timescale 1ns / 1ps
+
+/*================================================
 File Name: sequencer.sv
 Description: sequencer of agent
 Author: Andrew Chen
 Date Created: Dec 16 2025
-================*/
-
-`timescale 1ns / 1ps
+================================================*/
 
 class sequencer extends uvm_sequencer;
 

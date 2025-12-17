@@ -1,11 +1,12 @@
-/*================
+`timescale 1ps / 1ns
+
+/*================================================
 File Name: top.sv
 Description: top model of uvm model
 Author: Andrew Chen
 Date Created: Dec 16 2025
-================*/
+================================================*/
 
-`timescale 1ps / 1ns
 `include "uvm_macros.svh" // .svh import here is needed for all top modules in uvm
 import uvm_pkg::*; 
 

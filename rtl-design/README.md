@@ -86,3 +86,60 @@ For this specific GitHub repository, I will be implementing an AXI-lite interfac
 2. The slave device replies with an acknowledgement signal to let the master know that the write was successful.
 
 ---
+
+## Signal List (AXI-Lite)
+
+Refer to the signal list specs below:
+
+<p align="center">
+    <img width=600px src="./Signal_List.png" />
+</p>
+
+Since we're designing an AXI-Lite system, we will not be including the `BRESP` and the `RRESP` signals since they're not fully supported.
+
+Global:
+* ACLK: global clock
+* ARESETn: active-low reset
+
+Write address channel:
+* AWVALID: write address valid
+* AWREADY: write address ready
+* AWADDR: write address
+* AWPROT: protection type (optional)
+
+Write data channel:
+* WVALID: write data valid
+* WREADY: write data ready
+* WDATA: write data
+* WSTRB: write strobe
+
+Write response channel:
+* BVALID: write response valid
+* BREADY: write response ready
+* BRESP: write response (optional)
+
+Read address channel:
+* ARVALID: read address valid
+* ARREADY: read address ready
+* ARADDR: read address
+* ARPROT: protection type (optional)
+
+Read data channel:
+* RVALID: read response valid
+* RREADY: read response ready
+* RDATA: read data
+* RRESP: read response (optional)
+
+Just to clear up any confusion of what these terms mean originally, because it kinda confused me initially.
+
+---
+
+## AXI-Lite Master Design
+
+Now with all of that out of the way, we can finally start deisgning the AXI-Lite Master.
+
+---
+
+## AXI-Lite Slave Design
+
+---

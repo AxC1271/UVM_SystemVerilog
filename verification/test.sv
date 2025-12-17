@@ -1,11 +1,11 @@
-/*================
+`timescale 1ns / 1ps
+
+/*================================================
 File Name: test.sv
 Description: test object of top model
 Author: Andrew Chen
 Date Created: Dec 16 2025
-================*/
-
-`timescale 1ns / 1ps
+================================================*/
 
 // here systemverilog's oop comes handy here, we want to 
 // instantiate a child instance of uvm test class 

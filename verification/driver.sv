@@ -1,11 +1,11 @@
-/*================
+`timescale 1ns / 1ps
+
+/*================================================
 File Name: driver.sv
 Description: driver of agent
 Author: Andrew Chen
 Date Created: Dec 16 2025
-================*/
-
-`timescale 1ns / 1ps
+================================================*/
 
 class driver extends uvm_driver;
 
