@@ -15,6 +15,10 @@ class agent extends uvm_agent;
 
     `uvm_component_utils(agent);
 
+    monitor monitor_0;
+    sequencer sequencer_0;
+    driver driver_0;
+
     function new(string name = "agent", uvm_component parent = null);
         super.new(name, parent);
     endfunction
@@ -25,6 +29,9 @@ class agent extends uvm_agent;
         // referring to the architecture, you'll
         // need to build the monitor, sequencer,
         // and the driver
+        monitor_0 = monitor::type_id::create("monitor_0", this);
+        sequencer_0 = sequencer::type_id::create("sequencer_0", this);
+        driver_0 = driver::type_id::create("driver_0", this);
 
     endfunction
 

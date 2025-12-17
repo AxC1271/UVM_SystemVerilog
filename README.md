@@ -1,5 +1,10 @@
 # Full Guide to SystemVerilog UVM (Universal Verification Methodology)
 
+To properly view this README file on VSCode, open this folder in VSCode and `Ctrl + Shift + V` for Windows or `Cmd + Shift + V` 
+for Mac devices for better visuals and cleaner markdown formatting. It'll look prettier, I promise 😀. 
+
+---
+
 ## Overall Architecture
 
 <p align="center">
@@ -69,6 +74,8 @@ public class Toyota extends Vehicle {
 
 I just wanted to draw a parallel here in what OOP and why polymorphism matters. The new function in SV acts very similarly
 to constructors used in Java, and you're explicitly calling super() on both languages. I thought it was pretty cool. 😀
+
+---
 
 ## Setting up the Top Module
 

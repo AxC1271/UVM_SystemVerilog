@@ -20,6 +20,8 @@ class env extends uvm_env;
     // block diagram and see if it's directly
     // in the model
 
+    agent agent_0;
+
     function new(string name="env", uvm_component parent = null);
         super.new(name, parent);
     endfunction
@@ -29,7 +31,7 @@ class env extends uvm_env;
         // build other components
         // you need to build agent here, refer
         // to the general architecture to see why
-
+        agent_0 = agent::type_id::create("agent_0", this);
     endfunction
 
     // connect phase

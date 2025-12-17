@@ -18,7 +18,7 @@ class test extends uvm_test;
 
     // instantiate classes here in test, you'll have to create env
     // look at the diagram, only env is directly inside test
-
+    env env_0;
 
     // now we need a constructor to instantiate our class and initialize properties
     // costructor is called new(), and it takes two parameters (a string name and uvm component)
@@ -31,7 +31,8 @@ class test extends uvm_test;
     function void build_phase(uvm_phase phase);
         // build other components
         // build environment class here
-
+        // using the factory create method
+        env_0 = env::type_id::create("env_0", this);
     endfunction
 
     // connect phase
