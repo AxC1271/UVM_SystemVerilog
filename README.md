@@ -12,7 +12,7 @@ See how I apply these UVM techniques to the AXI protocol that I'll design and bu
 ## Overall Architecture + Summary
 
 <p align="center">
-    <img height=400px src="./axi-protocol/verification/UVM_Diagram.png" />
+    <img height=400px src="./verification/UVM_Diagram.png" />
 </p>
 
 This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module. It makes a lot of intuitive sense on what modules belong where in which module's build phase, and it makes visualizing it as a cohesive system a lot easier. Essentially, the general UVM model (which is your top module) consists of two models, your design under test (the design you want to stress-test and simulate) and your actual test.
@@ -86,7 +86,7 @@ to constructors used in Java, and you're explicitly calling super() on both lang
 ## Phase Flow
 
 <p align="center">
-    <img height=400px src="./axi-protocol/verification/UVMPhase.png" />
+    <img height=400px src="./verification/UVMPhase.png" />
 </p>
 
 ### Build Phases
@@ -134,13 +134,13 @@ the subdirectory `rtl-design` includes more information on the inner workings of
 This is Figure 1-1.
 
 <p align="center">
-    <img height=400px src="./axi-protocol/rtl-design/Figure1-1.png" />
+    <img height=400px src="./rtl-design/Figure1-1.png" />
 </p>
 
 This is Figure 1-2.
 
 <p align="center">
-    <img height=400px src="./axi-protocol/rtl-design/Figure1-2.png" />
+    <img height=400px src="./rtl-design/Figure1-2.png" />
 </p>
 
 ---
