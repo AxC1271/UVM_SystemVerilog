@@ -9,6 +9,17 @@ See how I apply these UVM techniques to the AXI protocol that I'll design and bu
 
 ---
 
+## Prerequisites
+
+**To get the most from this guide:**
+- Basic Verilog/SystemVerilog knowledge
+- Understanding of object-oriented programming concepts (any language)
+- Familiarity with testbench concepts (not required but helpful)
+
+**Don't worry if you're missing some of these** - I've included primers on OOP and testbench structure to help bridge any gaps.
+
+---
+
 ## Overall Architecture + Summary
 
 <p align="center">
@@ -123,5 +134,10 @@ This is Figure 1-2, which shows the write transactions.
 
 I'll assume the reader is aware of AXI protocols, but just in case,
 the subdirectory `rtl-design` includes more information on the inner workings of it, and how I came around to designing the interface in SystemVerilog.
+
+---
+
+## Final Verification Results
+
 
 ---
