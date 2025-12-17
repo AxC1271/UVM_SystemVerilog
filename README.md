@@ -8,7 +8,7 @@ for Mac devices for better visuals and cleaner markdown formatting. It'll look p
 ## Overall Architecture
 
 <p align="center">
-    <img src="./UVM_Diagram.png" height=400px />
+    <img src="./axi-protocol/verification/UVM_Diagram.png" height=400px />
 </p>
 
 This diagram is a really good model for understanding how the UVM ecosystem works, especially once you get into the build phases of each module. It makes a lot of intuitive sense on what modules belong where in which module's build phase, and it makes visualizing it as a cohesive system a lot easier.
@@ -112,7 +112,7 @@ endmodule
 ## Phase Flow
 
 <p align="center">
-    <img height=400px src="./UVMPhase.png" />
+    <img height=400px src="./axi-protocol/verification/UVMPhase.png" />
 </p>
 
 ### Build Phases
@@ -151,7 +151,15 @@ After the simulation is done, we have the cleanup phases, which extract the expe
 
 ---
 
-## AXI Protocol
+## AXI Protocol Specifications
+
+<p align="center">
+    <img height=400px src="./axi-protocol/rtl-design/Figure1-1.png" />
+</p>
+
+<p align="center">
+    <img height=400px src="./axi-protocol/rtl-design/Figure1-2.png" />
+</p>
 
 ---
 
