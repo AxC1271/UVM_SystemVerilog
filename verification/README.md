@@ -104,6 +104,16 @@ endclass
 
 The steps are virtually identical as all of these are also UVM components, so they follow a similar template to how we set up `agent.sv` and `env.sv`.
 
+---
+
+## UVM Phase Cycle
+
+---
+
+## SystemVerilog Interfaces
+
+---
+
 ## Challenge Exercises
 
 ### Challenge 1
@@ -121,10 +131,37 @@ module full_adder (
 assign {cout, sum} = a + b + cin;
 endmodule
 ```
+Assume you're also given this interface:
 
+```Verilog
+interface adder_if;
+  logic a, b, cin;
+  logic sum, cout;
+  logic clk;
+endinterface
+```
+Complete the following transaction class. I suggest you paste this code on a separate SystemVerilog file and follow on:
+```Verilog
+class adder_transaction extends uvm_sequence_item;
+  // TODO: Declare randomizable inputs (a, b, cin)
+  // TODO: Declare observed outputs (sum, cout)
+  
+  `uvm_object_utils_begin(adder_transaction)
+    // TODO: Register fields for printing/copying
+  `uvm_object_utils_end
+  
+  function new(string name = "adder_transaction");
+    super.new(name);
+  endfunction
+endclass
+```
+1. Should the logic signals a, b, and cin be rand? Why or why not?
+2. Should the logic signals sum and cout be rand? Why or why not?
+3. What does the uvm_field_int() function actually do?
 
 
 ### Challenge 2
+Write a driver class for this specific full adder module.
 
 ### Challenge 3
 
@@ -136,15 +173,15 @@ endmodule
 
 ### Challenge 1
 
----
+
 
 ### Challenge 2
 
----
+
 
 ### Challenge 3
 
----
+
 
 ### Challenge 4
 
