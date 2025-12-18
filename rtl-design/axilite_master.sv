@@ -16,7 +16,21 @@ module axilite_master # (
     input wire ARESETn,
 
     // write address channel
+    input wire AWVALID,
+    input wire AWREADY,
+    input[31:0] wire AWADDR,
+    // input[2:0] wire AWPROT,
+
+    // write data channel
+    input wire WVALID,
+    input wire WREADY,
+    input[31:0] wire WDATA,
     
+    // write response channel
+
+    // read response channel
+
+    // read data channel
 );
 
 endmodule
