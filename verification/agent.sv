@@ -37,8 +37,8 @@ class agent extends uvm_agent;
 
     // connect phase
     function void connect_phase(uvm_phase phase);
-        // necessary conncetions
-
+        // necessary connections
+        driver_0.seq_item_port.connect(sequencer_0.seq_item_export);
     endfunction
 
     // run phase is the only phase that can consume time

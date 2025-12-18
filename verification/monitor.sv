@@ -17,6 +17,9 @@ class monitor extends uvm_monitor;
     // instantiate the interface here
     axi_interface intf;
 
+    // create our port here
+    uvm_analysis_port #(sequence_item) mon_port;
+
     function new(string name = "agent", uvm_component parent = null);
         super.new(name, parent);
     endfunction
@@ -24,10 +27,12 @@ class monitor extends uvm_monitor;
      // build phase
     function void build_phase(uvm_phase phase);
         // build other components
-        
+
         // for the driver and monitor we'll need to 
         // instantiate our custom axi-interface
         uvm_config_db #(virtual axi_interface)::get(null, "*", "intf", intf);
+
+        mon_port = new("Monitor Port", this);
 
     endfunction
 
