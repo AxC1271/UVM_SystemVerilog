@@ -2,13 +2,15 @@
 
 /*================================================
 File Name: axilite_slave.sv
-Description: axi slave device
+Description: axi slave device (memory)
 Author: Andrew Chen
 Date Created: Dec 16 2025
 ================================================*/
 
 module axilite_slave (
-
+    // global
+    input wire ACLK,
+    input wire ARESETn
 );
 
 endmodule

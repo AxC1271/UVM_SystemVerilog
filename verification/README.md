@@ -140,6 +140,7 @@ interface adder_if;
   logic clk;
 endinterface
 ```
+
 Complete the following transaction class. I suggest you paste this code on a separate SystemVerilog file and follow on:
 ```Verilog
 class adder_transaction extends uvm_sequence_item;
@@ -155,33 +156,162 @@ class adder_transaction extends uvm_sequence_item;
   endfunction
 endclass
 ```
+
 1. Should the logic signals a, b, and cin be rand? Why or why not?
 2. Should the logic signals sum and cout be rand? Why or why not?
 3. What does the uvm_field_int() function actually do?
 
 
 ### Challenge 2
-Write a driver class for this specific full adder module.
+
+Write a driver class for this specific full adder module. Here's the specific template:
+
+```Verilog
+class adder_driver extends uvm_driver #(adder_transaction);
+  `uvm_component_utils(adder_driver)
+  virtual adder_if vif;
+  
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+  
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    // TODO: Get virtual interface from config_db
+  endfunction
+  
+  task run_phase(uvm_phase phase);
+    forever begin
+      // TODO: Get next transaction from sequencer
+      // TODO: Drive a, b, cin to DUT
+      // TODO: Wait for clock edge
+      // TODO: Tell sequencer item is done
+    end
+  endtask
+endclass
+```
+
+1. What's ths difference between `get_next_item()` and `item_done()`?
+2. Why do we wait for a clock edge?
+3. What happens if you forget `item_done()`?
 
 ### Challenge 3
+Complete the following boilerplate code for the sequencer:
+```Verilog
+class corner_case_seq extends uvm_sequence #(adder_transaction);
+  `uvm_object_utils(corner_case_seq)
+  
+  task body();
+    // TODO: Generate transactions that hit corner cases:
+    // - All zeros (0+0+0)
+    // - All ones (1+1+1)
+    // - 10 random cases
+  endtask
+endclass
+```
+
+1. How would you force `a=1, b=1, cin=1` (not randomize)?
+2. Why use `start_item()/finish_item()` instead of just `req.randomize()`?
 
 ### Challenge 4
+
+Connect the following agent class:
+
+```Verilog
+class adder_agent extends uvm_agent;
+  adder_driver driver;
+  adder_monitor monitor;
+  uvm_sequencer #(adder_transaction) sequencer;
+  
+  // ... (build_phase creates driver, monitor, sequencer)
+  
+  function void connect_phase(uvm_phase phase);
+    // TODO: Connect driver to sequencer
+    // TODO: Connect monitor to scoreboard (assume scoreboard is in env)
+  endfunction
+endclass
+```
+
+1. What's the port on the driver called?
+2. What's the export on the sequencer called?
+3. Do you connect monitor here or in the env?
 
 ---
 
 ## Answers to Challenge Exercises
 
 ### Challenge 1
+Complete transaction class:
 
+```Verilog
+class adder_transaction extends uvm_sequence_item;
+  // TODO: Declare randomizable inputs (a, b, cin)
+  // TODO: Declare observed outputs (sum, cout)
+  
+  `uvm_object_utils_begin(adder_transaction)
+    // TODO: Register fields for printing/copying
+  `uvm_object_utils_end
+  
+  function new(string name = "adder_transaction");
+    super.new(name);
+  endfunction
+endclass
+```
 
+1.
+2.
+3.
 
 ### Challenge 2
+Complete driver class:
 
+```Verilog
+class adder_driver extends uvm_driver #(adder_transaction);
+  `uvm_component_utils(adder_driver)
+  virtual adder_if vif;
+  
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+  
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    // TODO: Get virtual interface from config_db
+  endfunction
+  
+  task run_phase(uvm_phase phase);
+    forever begin
+      // TODO: Get next transaction from sequencer
+      // TODO: Drive a, b, cin to DUT
+      // TODO: Wait for clock edge
+      // TODO: Tell sequencer item is done
+    end
+  endtask
+endclass
+```
 
+1.
+2.
+3.
 
 ### Challenge 3
+Complete sequencer class:
 
+```Verilog
+class corner_case_seq extends uvm_sequence #(adder_transaction);
+  `uvm_object_utils(corner_case_seq)
+  
+  task body();
+    // TODO: Generate transactions that hit corner cases:
+    // - All zeros (0+0+0)
+    // - All ones (1+1+1)
+    // - 10 random cases
+  endtask
+endclass
+```
 
+1. 
+2.
 
 ### Challenge 4
 
