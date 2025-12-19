@@ -140,6 +140,6 @@ Now with all of that out of the way, we can finally start designing the AXI-Lite
 
 ---
 
-## AXI-Lite Slave Design
+## AXI-Lite Slave Design (Memory)
 
 ---
